@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Test</title>
+    <link href="main.css" rel="stylesheet"></head>
+
+    <body>
+        <header>
+            <div class="title">
+                Let's evaluate an article with Natural Language Processing
+            </div>
+            <div class="paragraph">
+                I have built a web tool that allows users to run Natural Language Processing (NLP) on articles or blogs 
+                found on other websites.
+                NLP is a subset of AI that provides computers ability to process or interact with natural human speech. 
+                In NLP, machine learning and deep learning are used on massive amounts of data to obtain the rules and 
+                understanding of nuance in human speech.
+                <br><br>
+                <p>Try inserting an URL of your favourite article in the apposite search form..
+                </p>
+                <br>
+                <p>And you will see some amazing results!</p>
+            </div>
+        </header>
+
+        <main>
+            <section class="form-container">
+                <!--FORM-->
+                <form onsubmit="Client.handleSubmit(event)">
+                    <input id="url" type="url" name="url" placeholder="Insert an article URL">
+                    <input id="submit" type="submit" name="submit" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
+                </form>
+            </section>
+
+            <section class="form-container">
+                <!--RESULTS-->
+                <h1 class="result-title"><strong>Form Results:</strong></h1>
+                <div id="results">
+                    <h3>Agreement:</h3>
+                    <p id="agreement"></p>
+                    <br>
+                    <h3>Subjectivity:</34>
+                    <p id="subjectivity"></p>
+                    <br>
+                    <h3>Confidence:</h3>
+                    <p id="confidence"></p>
+                    <br>
+                    <h3>Irony:</h3>
+                    <p id="irony"></p>
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            <p class="footer-text">Developed by Olmo Biancardi</p>
+        </footer>
+        
+        <!-- Service Workers --> 
+        <script>
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            }
+        </script>    
+    <script type="text/javascript" src="main.js"></script></body>
+</html>
